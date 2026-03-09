@@ -14,6 +14,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public List<Category> getAllCategories() {
+        categories.forEach(category -> System.out.println("category " + category));
         return categories;
     }
 
@@ -21,6 +22,19 @@ public class CategoryServiceImpl implements CategoryService{
     public void createCategory(Category category) {
         category.setCategoryId(nextId++);
         categories.add(category);
+        System.out.println(category + " has been added.");
+    }
+
+    @Override
+    public String deleteCategory(Long categoryId) {
+        Category category = categories.stream()
+                        .filter(c -> c.getCategoryId() == (categoryId))
+                .findFirst().orElse(null);
+        if (category == null)
+            return "Category not found!";
+        categories.remove(category);
+        System.out.println("Deleted category = " + category);
+        return "Category with category id: " + category + "has been removed from DB.";
     }
 
 
