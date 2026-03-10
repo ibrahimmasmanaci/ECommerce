@@ -1,11 +1,14 @@
 package com.ecommerce.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Category {
 
-    private long categoryId;
+
+    private Long categoryId;
     private  String categoryName;
 
-    public Category(long categoryId, String categoryName) {
+    public Category(Long categoryId, String categoryName) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
@@ -14,7 +17,7 @@ public class Category {
         return categoryId;
     }
 
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
