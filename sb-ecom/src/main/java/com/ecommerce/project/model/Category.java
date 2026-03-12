@@ -2,12 +2,17 @@ package com.ecommerce.project.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import javax.annotation.processing.Generated;
 
 @Entity(name = "categories")
 public class Category {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private  String categoryName;
 
